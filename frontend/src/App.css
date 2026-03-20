@@ -10,9 +10,34 @@ html {
 }
 
 body {
+  margin: 0;
   font-family: "Poppins", sans-serif;
   background: #020617;
   color: #e2e8f0;
+  overflow-x: hidden;
+}
+
+/* BACKGROUND GLOW */
+body::before {
+  content: "";
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(56,189,248,0.15), transparent);
+  top: -100px;
+  left: -100px;
+  z-index: -1;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(99,102,241,0.15), transparent);
+  bottom: -100px;
+  right: -100px;
+  z-index: -1;
 }
 
 /* LAYOUT */
@@ -23,15 +48,17 @@ body {
 }
 
 section {
-  padding: 60px 20px;
+  padding: 80px 20px;
 }
 
 /* NAVBAR */
 .navbar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 20px 40px;
-  background: #020617;
+  background: rgba(2, 6, 23, 0.8);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid #1e293b;
   position: sticky;
   top: 0;
@@ -41,7 +68,9 @@ section {
 .navbar a {
   margin-left: 20px;
   color: #94a3b8;
-  transition: 0.2s;
+  transition: 0.25s;
+  text-decoration: none;
+  font-size: 14px;
 }
 
 .navbar a:hover {
@@ -51,84 +80,105 @@ section {
 /* HERO */
 .hero {
   text-align: center;
-  margin-top: 60px;
+  margin-top: 80px;
 }
 
 .hero h1 {
-  font-size: 40px;
-  margin-bottom: 10px;
+  font-size: 48px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #38bdf8, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero p {
   color: #94a3b8;
+  margin-top: 10px;
+  font-size: 16px;
 }
 
-/* PROJECTS */
-.projects h1 {
-  margin-bottom: 30px;
+/* SECTION HEADINGS */
+section h1 {
+  font-size: 28px;
   text-align: center;
+  margin-bottom: 40px;
+  position: relative;
 }
 
+section h1::after {
+  content: "";
+  width: 60px;
+  height: 3px;
+  background: #38bdf8;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 10px;
+}
+
+/* PROJECTS GRID */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
+  gap: 24px;
 }
 
 /* CARD */
 .card {
-  background: #0f172a;
+  background: rgba(15, 23, 42, 0.7);
   border: 1px solid #1e293b;
-  border-radius: 12px;
-  padding: 18px;
-  transition: 0.2s ease;
+  border-radius: 16px;
+  padding: 20px;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(8px);
 }
 
 .card:hover {
   border-color: #38bdf8;
-  transform: translateY(-4px);
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 15px 40px rgba(56, 189, 248, 0.15);
 }
 
 .card h2 {
   font-size: 18px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .card p {
   font-size: 14px;
   color: #94a3b8;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
+  line-height: 1.5;
 }
 
 /* BUTTON */
 .button {
   display: inline-block;
-  padding: 8px 14px;
-  border-radius: 8px;
+  padding: 10px 16px;
+  border-radius: 10px;
   border: 1px solid #38bdf8;
   color: #38bdf8;
-  font-size: 13px;
-  transition: 0.2s;
+  font-size: 14px;
+  transition: all 0.25s ease;
+  text-decoration: none;
 }
 
 .button:hover {
   background: #38bdf8;
   color: #020617;
+  box-shadow: 0 8px 20px rgba(56, 189, 248, 0.3);
 }
 
 /* ABOUT */
 .about-container {
   max-width: 700px;
   margin: auto;
-}
-
-.about h1 {
-  margin-bottom: 20px;
+  text-align: center;
 }
 
 .about p {
   color: #94a3b8;
-  line-height: 1.6;
+  line-height: 1.7;
+  font-size: 15px;
 }
 
 /* CONTACT */
@@ -138,13 +188,14 @@ section {
 
 .contact-text {
   color: #94a3b8;
-  margin: 10px 0 20px;
+  margin: 10px 0 25px;
+  font-size: 15px;
 }
 
 .contact-buttons {
   display: flex;
   justify-content: center;
-  gap: 12px;
+  gap: 14px;
   flex-wrap: wrap;
 }
 
@@ -153,4 +204,22 @@ section {
   text-align: center;
   margin-top: 30px;
   color: #94a3b8;
+}
+
+/* SCROLLBAR (optional but cool) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #38bdf8;
 }
