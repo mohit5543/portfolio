@@ -100,9 +100,16 @@ h1 {
 
 /* projects section */
 
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
 .container {
-  max-width: 1200px;
-  margin: auto;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
 }
 .grid {
   display: grid;

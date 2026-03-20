@@ -6,7 +6,7 @@ function Projects() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://portfolio-backend-5pz8.onrender.com")
+    fetch("fetch("https://portfolio-backend-5pz8.onrender.com/api/repos")")
       .then(res => res.json())
       .then(data => {
         setProjects(data);
@@ -19,7 +19,7 @@ function Projects() {
   }, []);
 
   return (
-    <div id="projects">
+    <div id="projects" className="projects">
       <h1>My Projects </h1>
 
       {loading ? (
