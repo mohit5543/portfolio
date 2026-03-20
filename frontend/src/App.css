@@ -180,6 +180,11 @@ section {
   gap: 15px;
 }
 
+.hero .typing,
+.hero .typing * {
+  color: #38bdf8 !important;
+}
+
 /* BUTTON VARIANTS */
 .button.primary {
   background: #38bdf8;

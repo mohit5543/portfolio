@@ -28,7 +28,7 @@ function Hero() {
         className="typing"
     
       />
-      <div class="hero-buttons">
+      <div className="hero-buttons">
         <a href="#projects" className="button primary">View Projects</a>
         <a href="#contact" className="button secondary">Contact Me</a>
       </div>
