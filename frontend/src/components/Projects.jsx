@@ -1,55 +1,45 @@
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 
-function Projects() {
-  const [projects, setProjects] = useState([]);
-  const [loading, setLoading] = useState(true);
+export default function Projects() {
+  const [repos, setRepos] = useState([]);
 
   useEffect(() => {
-    fetch("https://portfolio-backend-5pz8.onrender.com/repos")
-      .then(res => res.json())
-      .then(data => {
-        setProjects(data);
-        setLoading(false);
+    fetch("https://api.github.com/users/mohit5543/repos")
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data)) {
+          setRepos(data);
+        } else {
+          console.error("API error:", data);
+          setRepos([]);
+        }
       })
-      .catch(err => {
-        console.error(err);
-        setLoading(false);
-      });
+      .catch((err) => console.error(err));
   }, []);
 
-  return (
-    <div id="projects" className="projects">
-      <h1>My Projects </h1>
+  const filteredRepos = repos
+    .filter((repo) => !repo.fork)
+    .slice(0, 6);
 
-      {loading ? (
-        <p className="loading">Loading projects...</p>
-      ) : (
-        <div className="grid">
-          {projects.slice(0, 4).map((repo) => (
-            <motion.div
-                className="card"
-                key={repo.id}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                whileHover={{ scale: 1.05 }}
-            >
+  return (
+    <section className="projects">
+      <h1>Projects</h1>
+
+      <div className="grid">
+        {filteredRepos.length === 0 ? (
+          <p className="loading">Loading...</p>
+        ) : (
+          filteredRepos.map((repo) => (
+            <div className="card" key={repo.id}>
               <h2>{repo.name}</h2>
-              <p>{repo.description || "A project built using modern web technologies."}</p>
-              <a 
-                href={repo.html_url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="button"
-                >
-                View Project
+              <p>{repo.description || "No description available."}</p>
+              <a href={repo.html_url} target="_blank" className="button">
+                View on GitHub
               </a>
-            </motion.div>
-          ))}
-        </div>
-      )}
-    </div>
+            </div>
+          ))
+        )}
+      </div>
+    </section>
   );
 }
-
-export default Projects;
