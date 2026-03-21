@@ -18,7 +18,7 @@ function Contact() {
           </a>
 
           <a
-            href="https://github.com/YOUR_USERNAME"
+            href="https://github.com/mohit5543"
             target="_blank"
             rel="noopener noreferrer"
             className="button secondary"
@@ -27,7 +27,7 @@ function Contact() {
           </a>
 
           <a
-            href="https://linkedin.com/in/YOUR_PROFILE"
+            href="https://www.linkedin.com/in/mohit-bhatia-0a7a341a5/"
             target="_blank"
             rel="noopener noreferrer"
             className="button secondary"

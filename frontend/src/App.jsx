@@ -5,7 +5,8 @@ import Navbar from "./components/Navbar";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import Skills from "./components/Skills"
+import Skills from "./components/Skills";
+import ScrollToTop from "./components/features/ScrollToTop";
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
 
         <section><Contact /></section>
       </div>
+
+      <ScrollToTop />
+
       <Footer />
     </div>
   );

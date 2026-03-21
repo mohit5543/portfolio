@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { FaReact, FaJs, FaNodeJs, FaGitAlt } from "react-icons/fa";
 import { SiCss, SiMongodb } from "react-icons/si";
+import { motion } from "framer-motion";
 
 export default function Skills() {
   const [activeTab, setActiveTab] = useState("frontend");
@@ -47,7 +48,13 @@ export default function Skills() {
   }, [activeTab, visible]);
 
   return (
-    <section className="skills" id="skills" ref={sectionRef}>
+    <motion.section 
+    className="skills" id="skills" ref={sectionRef}
+    initial={{ opacity: 0, y: 60 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
+    >
       <h1>Skills</h1>
 
       {/* Tabs */}
@@ -82,6 +89,6 @@ export default function Skills() {
           </div>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 }
