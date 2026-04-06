@@ -363,9 +363,9 @@ section h1::after {
   cursor: pointer;
   gap: 5px;
   padding: 10px;
-  border: 1px solid rgba(148, 163, 184, 0.16);
-  border-radius: 14px;
-  background: var(--surface);
+  border: none;
+  border-radius: 0;
+  background: transparent;
 }
 
 .menu-toggle span {

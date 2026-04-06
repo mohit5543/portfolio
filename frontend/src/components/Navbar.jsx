@@ -55,13 +55,17 @@ export default function Navbar({ activeSection, isDesktop, onNavigate }) {
         </div>
       </div>
 
-      <div className="menu-toggle" onClick={() => setOpen(!open)}>
-        <div className={`menu-toggle ${open ? "open" : ""}`}>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
+      <button
+        type="button"
+        className={`menu-toggle ${open ? "open" : ""}`}
+        onClick={() => setOpen(!open)}
+        aria-label="Toggle navigation"
+        aria-expanded={open}
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </nav>
   );
 }
